@@ -29,7 +29,9 @@ Simply copy this plugin to your project's `Plugins` folder (e.g., `YourProject/P
 1. **Message Sending**
 
   - Message Notification (Simplified Version)
+
     - C++ Implementation
+
     ```cpp
         // Template parameter <FFireModeStandardMessage_AfterDamage> struct type serves as the message key.
         // First parameter is the message body (carrying specific data).
@@ -39,24 +41,32 @@ Simply copy this plugin to your project's `Plugins` folder (e.g., `YourProject/P
         // Only the projectile shooter can receive the message
         MessageSubsystem.BroadcastSimpleMessage<FFireModeStandardMessage_AfterDamage>(FireModeStandardMessage_AfterDamage, BasicProjectile->ProjectileInstigator);
     ```
+
     - Blueprint Implementation
-    ![1_SimpleMessageSample](./imgs/1_SimpleMessageSample.jpg){: height="640"}
+
+    ![1_SimpleMessageSample](./imgs/1_SimpleMessageSample.jpg)
 
   - Message Notification (Full Version – retains Lyra's native Channel support)
+
     - C++ Implementation
+
     ```cpp
         // Broadcast world message
         MessageSubsystem.BroadcastMessage<FFireModeStandardMessage_AfterDamage>(FireModeStandardMessage_AfterDamage, FGameplayTag::EmptyTag);
         // Only the projectile shooter can receive the message
         MessageSubsystem.BroadcastMessage<FFireModeStandardMessage_AfterDamage>(FireModeStandardMessage_AfterDamage, FGameplayTag::EmptyTag, BasicProjectile->ProjectileInstigator);
     ```
+
     - Blueprint Implementation
-    ![2_SimpleMessageSample](./imgs/2_MessageSample.jpg){: height="640"}
+
+    ![2_SimpleMessageSample](./imgs/2_MessageSample.jpg)
 
 2. **Message Listening**
 
   - Message Listener (Simplified Version)
+
     - C++ Implementation
+
     ```cpp
         // Template parameter <FGameplayShipEnterEventData> struct type serves as the message key.
         // First parameter is the callback function, called when message triggers.
@@ -76,11 +86,15 @@ Simply copy this plugin to your project's `Plugins` folder (e.g., `YourProject/P
                 EGameplayMessagePriority::HIGHER,
                 GetOwner());
     ```
+
     - Blueprint Implementation
-    ![3_SimpleListenMessageSample](./imgs/3_SimpleListenMessageSample.jpg){: height="640"}
+
+    ![3_SimpleListenMessageSample](./imgs/3_SimpleListenMessageSample.jpg)
 
   - Message Listener (Full Version – retains Lyra's native Channel support)
+
     - C++ Implementation
+
     ```cpp
         // Listen world message
         MessageSubsystem.RegisterListener<FGameplayShipEnterEventData>(FGameplayTag::RequestGameplayTag("Message"), [WeakThis](FGameplayTag Channel, const FGameplayShipEnterEventData& Event)
@@ -98,19 +112,25 @@ Simply copy this plugin to your project's `Plugins` folder (e.g., `YourProject/P
                 EGameplayMessagePriority::HIGHER,
                 GetOwner());
     ```
+
     - Blueprint Implementation
-    ![4_ListenMessageSample](./imgs/4_ListenMessageSample.jpg){: height="640"}
+
+    ![4_ListenMessageSample](./imgs/4_ListenMessageSample.jpg)
 
 3. **Message Cancellation**
+
     - C++ Implementation
+
     ```cpp
         // Cancel current message in context
         // First parameter true indicates cancelling the message, sender can detect this cancellation flag.
         // Second parameter true indicates blocking all subsequent Listener execution after cancellation.
         MessageSubsystem.CancelMessage(true, true);
     ```
+
     - Blueprint Implementation
-    ![5_CancelMessage](./imgs/5_CancelMessage.jpg){: height="640"}
+
+    ![5_CancelMessage](./imgs/5_CancelMessage.jpg)
 
 ## Best Practices Guide
 

@@ -29,7 +29,9 @@ English version: [README.MD](README.MD)
 1. **消息发送**
 
   - Message Notification (Simplified Version)
+
     - C++实现
+
     ```cpp
     // 模板参数 <FFireModeStandardMessage_AfterDamage> 的结构提类型用作消息的 Key。
     // 第一个参数为消息体（携带具体数据）。
@@ -46,11 +48,15 @@ English version: [README.MD](README.MD)
         BasicProjectile->ProjectileInstigator
     );
     ```
+
     - Blueprint实现
-    ![1_SimpleMessageSample](./imgs/1_SimpleMessageSample.jpg){: height="640"}
+
+    ![1_SimpleMessageSample](./imgs/1_SimpleMessageSample.jpg)
 
   - Message Notification (Full Version – retains Lyra's native Channel support)
+
     - C++实现
+
     ```cpp
     // Broadcast world message
     MessageSubsystem.BroadcastMessage<FFireModeStandardMessage_AfterDamage>(
@@ -65,13 +71,17 @@ English version: [README.MD](README.MD)
         BasicProjectile->ProjectileInstigator
     );
     ```
+
     - Blueprint实现
-    ![2_SimpleMessageSample](./imgs/2_MessageSample.jpg){: height="640"}
+
+    ![2_SimpleMessageSample](./imgs/2_MessageSample.jpg)
 
 2. **消息监听**
 
   - Message Listener (Simplified Version)
+
     - C++实现
+
     ```cpp
     // 模板参数 <FGameplayShipEnterEventData> 的结构提类型用作消息的 Key。
     // 第一个参数为回调函数，当消息触发时调用。
@@ -95,11 +105,15 @@ English version: [README.MD](README.MD)
         GetOwner()
     );
     ```
+
     - Blueprint实现
-    ![3_SimpleListenMessageSample](./imgs/3_SimpleListenMessageSample.jpg){: height="640"}
+
+    ![3_SimpleListenMessageSample](./imgs/3_SimpleListenMessageSample.jpg)
 
   - Message Listener (Full Version – retains Lyra's native Channel support)
+
     - C++实现
+
     ```cpp
     // Listen world message
     MessageSubsystem.RegisterListener<FGameplayShipEnterEventData>(
@@ -124,10 +138,13 @@ English version: [README.MD](README.MD)
     ```
 
     - Blueprint实现
-    ![4_ListenMessageSample](./imgs/4_ListenMessageSample.jpg){: height="640"}
+
+    ![4_ListenMessageSample](./imgs/4_ListenMessageSample.jpg)
 
 3. **消息取消**
+
     - C++实现
+
     ```cpp
     // Cancel current message in context
     // 取消当前消息上下文的处理：
@@ -135,8 +152,11 @@ English version: [README.MD](README.MD)
     // 第二个参数 true 表示在取消消息后阻断所有后续 Listener 的执行，后续监听器将不会再收到该消息。
     MessageSubsystem.CancelMessage(true, true);
     ```
+
     - Blueprint实现
-    ![5_CancelMessage](./imgs/5_CancelMessage.jpg){: height="640"}
+
+    ![5_CancelMessage](./imgs/5_CancelMessage.jpg)
+
 
 ## 最佳实践指南
 
