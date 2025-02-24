@@ -8,20 +8,6 @@ This project is based on Unreal Engine's Lyra project ([GameplayMessageRouter](h
 
 中文版本：[README_CN.MD](README_CN.MD)
 
-## Examples and Features
-
-- **Structured Message System:**  
-  Uses message struct types as unique keys for sending and receiving messages, allowing both sender and receiver to work with the same data structure while maintaining support for GameplayTag-based channel filtering.
-
-- **Object-Specific Messages:**  
-  Enables sending messages to specific objects, ensuring only listeners related to that object receive the data, perfect for local or specific scenario event handling.
-
-- **Priority Handling:**  
-  Allows specifying priority when registering listeners, ensuring high-priority listeners process messages before others, preventing unexpected behaviors due to execution order.
-
-- **Cancellation Mechanism:**  
-  Listeners can cancel current message execution in callbacks and optionally block subsequent listener calls, with message senders able to detect if their message was cancelled.
-
 ## Examples
 
 Simply copy this plugin to your project's `Plugins` folder (e.g., `YourProject/Plugins/GameplayMessageRouter`) and regenerate project files to start using the enhanced Gameplay Message Router. Supports both Blueprint and C++ projects.
