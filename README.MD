@@ -1,12 +1,19 @@
+# 中文版本：
+
+[README_CN.MD](README_CN.MD)
+
 # Gameplay Message Router (UGC Enhanced Version)
 
 This project is based on Unreal Engine's Lyra project ([GameplayMessageRouter](https://github.com/EpicGames/UnrealEngine/tree/ue5-main/Samples/Games/Lyra/Plugins/GameplayMessageRouter)) and has been enhanced with design concepts inspired by Minecraft's messaging system. The system is optimized for User Generated Content (UGC) workflows, aiming to achieve intuitive and flexible communication between independent game objects while using unified message structs as keys for both sending and listening. This approach significantly simplifies the development process (as sending and receiving use the same data structure) while retaining GameplayTag-based channel filtering for better compatibility and fine-grained control. Key features include:
-- **Message Struct as Key:** Uses message struct types as keys, eliminating tedious tag management;
-- **Object-Specific Messages:** Supports message delivery to specific target objects, ensuring only listeners registered to that object receive messages;
-- **Priority Handling:** Allows specifying priority when registering listeners, ensuring critical business logic executes before lower priority handlers;
-- **Cancellation Mechanism:** Listeners can cancel message execution in callbacks and optionally block subsequent listener processing, with cancellation status feedback to the sender.
+- **Structured Message System:**  
+  Uses message struct types as unique keys for sending and receiving messages, allowing both sender and receiver to work with the same data structure while maintaining support for GameplayTag-based channel filtering.
+- **Object-Specific Messages:**  
+  Enables sending messages to specific objects, ensuring only listeners related to that object receive the data, perfect for local or specific scenario event handling.
+- **Priority Handling:**  
+  Allows specifying priority when registering listeners, ensuring high-priority listeners process messages before others, preventing unexpected behaviors due to execution order.
+- **Cancellation Mechanism:**  
+  Listeners can cancel current message execution in callbacks and optionally block subsequent listener calls, with message senders able to detect if their message was cancelled.
 
-中文版本：[README_CN.MD](README_CN.MD)
 
 ## Examples
 
