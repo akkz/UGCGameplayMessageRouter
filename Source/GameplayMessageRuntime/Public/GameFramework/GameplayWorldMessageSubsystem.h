@@ -302,7 +302,7 @@ protected:
 	 * @param Message			The message to send (must be the same type of UScriptStruct expected by the listeners for this channel, otherwise an error will be logged)
 	 * @param WorldPosition		The world position where the message is broadcast
 	 */
-	UFUNCTION(BlueprintCallable, CustomThunk, Category=Messaging, meta=(CustomStructureParam="Message", AllowAbstract="false", DisplayName="Broadcast Spatial Message"))
+	UFUNCTION(BlueprintCallable, CustomThunk, Category=Messaging, meta=(CustomStructureParam="Message", AllowAbstract="false", DisplayName="Broadcast World Message"))
 	FGameplayMessageBroadcastResult K2_BroadcastMessage(FGameplayTag Channel, UPARAM(ref) int32& Message, FVector WorldPosition);
 	DECLARE_FUNCTION(execK2_BroadcastMessage);
 
@@ -312,7 +312,7 @@ protected:
 	 * @param Message			The message to send (must be the same type of UScriptStruct expected by the listeners for this channel, otherwise an error will be logged)
 	 * @param WorldPosition		The world position where the message is broadcast
 	 */
-	UFUNCTION(BlueprintCallable, CustomThunk, Category=Messaging, meta=(CustomStructureParam="Message", AllowAbstract="false", DisplayName="Broadcast Simple Spatial Message"))
+	UFUNCTION(BlueprintCallable, CustomThunk, Category=Messaging, meta=(CustomStructureParam="Message", AllowAbstract="false", DisplayName="Broadcast Simple World Message"))
 	FGameplayMessageBroadcastResult K2_BroadcastSimpleMessage(UPARAM(ref) int32& Message, FVector WorldPosition);
 	DECLARE_FUNCTION(execK2_BroadcastSimpleMessage);
 
